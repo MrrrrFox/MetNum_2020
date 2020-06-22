@@ -1,0 +1,18 @@
+set term png # ustawienie typu terminala, np. m.in. x11 (ekran), postscript, pdf, png, table (kolumny współrzędnych). 
+#####################################################################
+
+set out "eigen_rest.png"			# plik wynikowy
+set title "EIGEN REST" # tytuł wykresu	# tytuł
+set xl "nr iteracji" # tytuł osi x		# oś X
+set yl "{/Symbol l}" # tytuł osi y		# oś Y
+
+plot for[i=1:6] "eigenval.txt" index i u 1:2 with lp t sprintf("{/Symbol l}_%d",i)
+#####################################################################
+
+set out "eigen_max.png"			# plik wynikowy
+set title "EIGEN MAX" # tytuł wykresu	# tytuł
+set xl "nr iteracji" # tytuł osi x		# oś X
+set yl "{/Symbol l}" # tytuł osi y		# oś Y
+
+plot for[i=0:0] "eigenval.txt" index i u 1:2 with lp t sprintf("{/Symbol l}_%d",i)
+#####################################################################

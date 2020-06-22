@@ -1,0 +1,42 @@
+set term png # ustawienie typu terminala, np. m.in. x11 (ekran), postscript, pdf, png, table (kolumny współrzędnych). 
+#####################################################################
+
+do for[i=0:0] {
+	set o sprintf("log_chart")
+	set title "f_{1}(x)"
+	set xl "x" # tytuł osi x
+	p "logChart.txt" index i u 1:2 with l title "f_{1}"
+}
+
+######################################## fun1 x1=-0.5
+set out "fun1_ad1_x"
+set title "x_{1}=-0.5, f_{1}(x)"
+set xl "iteracja" # tytuł osi x
+plot for[i=2:4] "fun1ad1.txt" u 1:i with linespoints pointtype 7 t sprintf("x_{%d}",i), "fun1ad1.txt" u 1:5 with linespoints pointtype 7 title "x_{m}"
+
+set out "fun1_ad1_F"
+set title "x_{1}=-0.5, f_{1}(x)"
+set xl "iteracja" # tytuł osi x
+plot "fun1ad1.txt" u 1:6 with linespoints pointtype 7 title "F[x_{1},x_{2}]", "fun1ad1.txt" u 1:7 with linespoints pointtype 7 title "F[x_{1},x_{2},x_{3}]"
+
+######################################## fun1 x1=-0.9
+set out "fun1_ad2_x"
+set title "x_{1}=-0.9, f_{1}(x)"
+set xl "iteracja" # tytuł osi x
+plot for[i=2:4] "fun1ad2.txt" u 1:i with linespoints pointtype 7 t sprintf("x_{%d}",i), "fun1ad2.txt" u 1:5 with linespoints pointtype 7 title "x_{m}"
+
+set out "fun1_ad2_F"
+set title "x_{1}=-0.9, f_{1}(x)"
+set xl "iteracja" # tytuł osi x
+plot "fun1ad2.txt" u 1:6 with linespoints pointtype 7 title "F[x_{1},x_{2}]", "fun1ad2.txt" u 1:7 with linespoints pointtype 7 title "F[x_{1},x_{2},x_{3}]"
+
+######################################## fun2 x1=1.5
+set out "fun2_ad1_x"
+set title "x_{1}=1.5, f_{2}(x)"
+set xl "iteracja" # tytuł osi x
+plot for[i=2:4] "fun2ad1.txt" u 1:i with linespoints pointtype 7 t sprintf("x_{%d}",i), "fun2ad1.txt" u 1:5 with linespoints pointtype 7 title "x_{m}"
+
+set out "fun2_ad1_F"
+set title "x_{1}=1.5, f_{2}(x)"
+set xl "iteracja" # tytuł osi x
+plot "fun2ad1.txt" u 1:6 with linespoints pointtype 7 title "F[x_{1},x_{2}]", "fun2ad1.txt" u 1:7 with linespoints pointtype 7 title "F[x_{1},x_{2},x_{3}]"

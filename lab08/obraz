@@ -1,0 +1,15 @@
+set term png # ustawienie typu terminala, np. m.in. x11 (ekran), postscript, pdf, png, table (kolumny współrzędnych). 
+#####################################################################
+
+do for[i=0:3] {
+	set o sprintf("fun1_%d", i+1)
+	set title "1/(1+x^{2})"
+	set xl "x" # tytuł osi x
+	p "firstfun.txt" index i u 1:2 with l t sprintf("n=%d",i==1 ? 6 : (i==2 ? 10 : 5+i*5)), "firstpoints.txt" index i u 1:2 w p pointtype 7 title "wezly", 1./(1+x**2) title "f(x)"
+}
+do for[i=0:2] {
+	set o sprintf("fun2_%d", i+1)
+	set title "cos(2x)"
+	set xl "x" # tytuł osi x
+	p "secondfun.txt" index i u 1:2 with l t sprintf("n=%d",i==0 ? 6 : (i==1 ? 7 : 14)), "secondpoints.txt" index i u 1:2 w p pointtype 7 title "wezly", cos(2*x) title "f(x)"
+}

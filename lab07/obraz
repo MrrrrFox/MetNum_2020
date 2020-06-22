@@ -1,0 +1,23 @@
+set term png # ustawienie typu terminala, np. m.in. x11 (ekran), postscript, pdf, png, table (kolumny współrzędnych). 
+#####################################################################
+
+do for[i=0:3] {
+	set o sprintf("wezly_rowno%d", i+1)
+	set title "wezly rownoodlegle"
+	set xl "x" # tytuł osi x
+	p "normal.txt" index i u 1:2 with l t sprintf("n=%d",5+i*5), "p1.txt" index i u 1:2 w p pointtype 7 title "wezly", 1./(1+x**2) title "f(x)"
+}
+
+do for[i=0:3] {
+	set o sprintf("wezly_opt%d", i+1)
+	set title "wezly zoptymalizowane"
+	set xl "x" # tytuł osi x
+	p "opt.txt" index i u 1:2 with l t sprintf("n=%d",5+i*5),"p2.txt" index i u 1:2 w p pointtype 7 title "wezly", 1./(1+x**2) title "f(x)"
+}
+
+#set out "w1.png"			# plik wynikowy
+#set title "wezly rownoodlegle" # tytuł wykresu	# tytuł
+#set xl "x" # tytuł osi x		# oś X
+
+#p  "out.txt" u 1:2 w p, 1./(1+x**2)
+####################################################################

@@ -1,0 +1,26 @@
+set term png # ustawienie typu terminala, np. m.in. x11 (ekran), postscript, pdf, png, table (kolumny współrzędnych). 
+#####################################################################
+
+set out "eigen_vals.png"			# plik wynikowy
+set title "EIGEN VALUES" # tytuł wykresu	# tytuł
+set xl "{/Symbol a}" # tytuł osi x		# oś X
+set yl "√{/Symbol l}" # tytuł osi y		# oś Y
+
+# wykresy z kolumny od 2 do 7 z pliku eigen_vals.txt, z odpowiednia przedzialka, liniami, każdy podpisany w stylu "{/Symbol w}_%d = √{/Symbol l}"
+plot for[i=2:7] "eigen_vals.txt" u 1:i with lines t sprintf("{/Symbol w}_%d = √{/Symbol l}",i-1)
+#####################################################################
+
+set out "alpha0.png"
+set title "ALPHA = 0"
+set xl "x" # tytuł osi x
+set yl "u(x)" # tytuł osi y
+
+plot for[i=2:7] "alpha0.txt" u 1:i with lines t sprintf("u_%d(x)",i-1)
+#####################################################################
+
+set out "alpha100.png"
+set title "ALPHA = 100"
+set xl "x" # tytuł osi x
+set yl "u(x)" # tytuł osi y
+
+plot for[i=2:7] "alpha100.txt" u 1:i with lines t sprintf("u_%d(x)",i-1)

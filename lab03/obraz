@@ -1,0 +1,17 @@
+set term png # ustawienie typu terminala, np. m.in. x11 (ekran), postscript, pdf, png, table (kolumny współrzędnych). 
+
+set out "z1.png"
+set out "z2.png"
+set out "z3.png" # ustawienie nazwy pliku wyjściowego
+
+set xl "t" # tytuł osi x
+set yl "x(t)" # tytuł osi y
+
+set title "" # tytuł wykresu
+
+#p "out.txt" u 1:2 w p lt 2 pt 4 t "beta = 0.0, F_0 = 0.0" # rysowanie wykresu
+#p "out.txt" u 1:2 w p lt 2 pt 4 t "beta = 0.4, F_0 = 0.0" # rysowanie wykresu
+p "out.txt" u 1:2 w p lt 2 pt 4 t "beta = 0.4, F_0 = 0.1" # rysowanie wykresu
+
+# rysowanie 2 wykresow naraz:
+#p "out.txt" u 1:2 w p lt 3 pt 6 t "beta = 0.0", cos(x) w l t "F_0 = 0" # rysowanie wykresu

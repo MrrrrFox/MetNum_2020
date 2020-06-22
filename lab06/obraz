@@ -1,0 +1,18 @@
+set term png # ustawienie typu terminala, np. m.in. x11 (ekran), postscript, pdf, png, table (kolumny współrzędnych). 
+#####################################################################
+
+set out "z0_a.png"			# plik wynikowy
+set title "" # tytuł wykresu	# tytuł
+set xl "Re(z)" # tytuł osi x		# oś X
+set yl "Im(z)" # tytuł osi y		# oś Y
+
+plot for[i=0:3] "out1.txt" index i u 1:2 w lp t sprintf("z^{(%d)}",i)
+#####################################################################
+
+set out "z0_b.png"			# plik wynikowy
+set title "" # tytuł wykresu	# tytuł
+set xl "Re(z)" # tytuł osi x		# oś X
+set yl "Im(z)" # tytuł osi y		# oś Y
+
+plot for[i=0:3] "out2.txt" index i u 1:2 w lp t sprintf("z^{(%d)}",i)
+#####################################################################

@@ -1,0 +1,20 @@
+set term png # ustawienie typu terminala, np. m.in. x11 (ekran), postscript, pdf, png, table (kolumny współrzędnych). 
+#####################################################################
+
+########################################
+do for[i=0:2] {
+	set o sprintf("calka_ad%d", i+1)
+	#set title sprintf("m=%d, k=%d", i==0 ? 0 : i==1 ? 1 : 5 , i==2 ? 5 : 1)
+	set xl "l" # tytuł osi x
+	set yl "I" # tytuł osi y
+	p "calka.txt" index i u 1:2 with linespoints pointtype 7 title sprintf("m=%d, k=%d", i==0 ? 0 : i==1 ? 1 : 5 , i==2 ? 5 : 1)
+}
+
+########################################
+do for[i=0:2] {
+	set o sprintf("modul_ad%d", i+1)
+	#set title sprintf("m=%d, k=%d", i==0 ? 0 : i==1 ? 1 : 5 , i==2 ? 5 : 1)
+	set xl "n" # tytuł osi x
+	set yl "|C-I|" # tytuł osi y
+	p "modul.txt" index i u 1:2 with linespoints pointtype 7 title sprintf("m=%d, k=%d", i==0 ? 0 : i==1 ? 1 : 5 , i==2 ? 5 : 1)
+}
